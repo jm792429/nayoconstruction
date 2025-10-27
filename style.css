@@ -1,0 +1,2109 @@
+/* ---------- RESET ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background: #e8f4ff;          /* light-blue vibe */
+  color: #333;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ---------- HEADER ---------- */
+header { background: #003b6f; color: #fff; }
+.header-container {
+  max-width: 1200px; margin: auto; padding: 0.8rem 1rem;
+  display: flex; align-items: center; gap: 2rem;
+}
+.logo { height: 55px; }
+.main-nav a {
+  margin: 0 1rem; font-weight: 600; font-size: 0.95rem;
+  position: relative; transition: color 0.2s;
+}
+.main-nav a:hover { color: #ffd66b; }
+
+/* underline animation */
+.main-nav a::after {
+  content: ''; position: absolute; left: 0; bottom: -4px;
+  width: 0; height: 2px; background: #ffd66b; transition: width 0.3s;
+}
+.main-nav a:hover::after { width: 100%; }
+
+.social-bar { margin-left: auto; display: flex; align-items: center; gap: 15px; }
+.social-bar i { font-size: 1.1rem; }
+.email-link { font-size: 0.85rem; font-weight: 600; }
+
+/* ---------- SECTIONS ---------- */
+section { padding: 4.5rem 1rem; max-width: 1200px; margin: auto; }
+section h2 { font-size: 2rem; text-align: center; margin-bottom: 2rem; color: #003b6f; }
+
+.hero {
+  text-align: center; padding: 6rem 1rem 5rem;
+}
+.hero h1 { font-size: 2.8rem; color: #003b6f; margin-bottom: 1rem; }
+.hero button {
+  background: #ffd66b; border: none; padding: 0.9rem 1.8rem;
+  font-size: 1rem; font-weight: 600; border-radius: 30px;
+  cursor: pointer; transition: background 0.25s;
+}
+.hero button:hover { background: #ffcd38; }
+
+/* ---------- SERVICES ---------- */
+.service-grid {
+  display: grid; gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.service-grid article {
+  background: #fff; padding: 2rem 1.2rem; border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.07);
+  text-align: center;
+}
+.service-grid i { font-size: 2.2rem; color: #003b6f; margin-bottom: 0.8rem; }
+.service-grid h3 { margin-bottom: 0.5rem; }
+
+/* ---------- TEAM ---------- */
+.team-cards {
+  display: grid; gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.card {
+  background: #fff; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08); text-align: center;
+  transition: transform 0.3s;
+}
+.card:hover { transform: translateY(-6px); }
+.card img { width: 100%; height: 230px; object-fit: cover; }
+.card h3 { margin: 1rem 0 0.2rem; color: #003b6f; }
+
+/* ---------- CONTACT ---------- */
+.contact-wrapper {
+  display: flex; flex-wrap: wrap; gap: 3rem; justify-content: center;
+}
+.contact-wrapper .info p { margin: 0.5rem 0; }
+.contact-wrapper i { color: #003b6f; margin-right: 0.4rem; }
+
+.contact-wrapper form {
+  background: #fff; padding: 2rem; border-radius: 12px;
+  width: min(500px, 100%);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  display: flex; flex-direction: column; gap: 1.1rem;
+}
+.contact-wrapper input,
+.contact-wrapper textarea {
+  width: 100%; padding: 0.75rem 1rem;
+  border: 1px solid #ccc; border-radius: 6px;
+}
+.contact-wrapper button {
+  align-self: flex-start;
+  background: #003b6f; color: #fff; border: none;
+  padding: 0.8rem 2rem; border-radius: 25px; cursor: pointer;
+  font-weight: 600;
+}
+.contact-wrapper button:hover { opacity: 0.9; }
+
+.social-inline a { margin-right: 0.8rem; font-size: 1.3rem; }
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: #003b6f; color: #fff; text-align: center;
+  padding: 1.2rem 0;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+  .logo { height: 45px; }
+  .main-nav { display: none; }            /* quick-hide nav on tiny screens */
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+  /* NEW background image */
+  background: url("sketch.jpeg") center/cover no-repeat fixed;
+  /* optional dark overlay for legible text */
+  position: relative;
+  color: #fff;                      /* white text on photo */
+  text-shadow: 0 2px 6px rgba(0,0,0,.6);
+  text-align: center;
+  padding: 8rem 1rem 7rem;          /* extra space */
+  +  min-height: 100vh;                /* NEW: fill the whole screen */
+  +  padding: 0 1rem;                  /* keep small side padding */
+  
+
+  /* keep mobile readable */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* overlay pseudo-element */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 59, 111, 0.55);  /* navy tint -- tweak opacity */
+  z-index: 0;
+}
+
+.hero > * {                         /* bring real content above overlay */
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== TEAM SECTION STYLES (updated) ===== */
+
+#team {
+    text-align: center;
+    padding: 60px 30px;
+    background-color: white;
+    border-radius: 16px;
+    max-width: 1100px;
+    margin: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.team-member {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.team-member:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.team-member:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.team-member:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.team-member img {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #004080;
+}
+
+.team-member img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.team-member h3 {
+    margin: 10px 0 5px 0;
+}
+
+.team-member p {
+    margin: 0;
+    color: #555;
+}
+
+.team-manager {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.team-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#team h2 {
+    font-size: 2rem;
+    color: #004080;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-subtext {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.tagline {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.team-watermark-wrapper {
+    position: relative;
+    padding: 60px 20px;
+    background: #f9fafe;
+    overflow: hidden;
+}
+
+.team-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.06;
+    width: 500px;
+    max-width: 90vw;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.team-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .team-watermark {
+        display: none;
+    }
+}
+
+.phone-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 20px;
+}
+
+.phone-list li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.phone-list li a {
+  color: #222;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.phone-list li a:hover {
+  color: #004080;
+}
+
+.phone-list strong {
+  font-weight: 600;
+  color: #004080;
+}
+
+/* icon + username spacing */
+.social-bar span,
+.social-inline span {
+  margin-left: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #004080;
+}
+
+/* ============= HEADER STYLES ============= */
+
+header {
+  background: #004080;
+  color: #fff;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* brand (logo + name) */
+.brand-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+.brand {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* navigation */
+.main-nav {
+  display: flex;
+  gap: 22px;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.main-nav a:hover {
+  opacity: 0.8;
+}
+
+/* social bar */
+.social-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.social-bar a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.social-bar span {
+  margin-left: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.email-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .main-nav {
+    display: none; /* simple hide nav on small screens */
+  }
+}
+
+/* ===== TEAM SECTION STYLES (updated) ===== */
+
+#team {
+    text-align: center;
+    padding: 60px 30px;
+    background-color: white;
+    border-radius: 16px;
+    max-width: 1100px;
+    margin: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.team-member {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.team-member:nth-child(2) { animation-delay: 0.2s; }
+.team-member:nth-child(3) { animation-delay: 0.4s; }
+.team-member:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+.team-member img {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #004080;
+}
+
+.team-member img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.team-member h3 {
+    margin: 10px 0 5px 0;
+}
+
+.team-member p {
+    margin: 0;
+    color: #555;
+}
+
+.team-manager {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.team-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#team h2 {
+    font-size: 2rem;
+    color: #004080;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-subtext {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.team-watermark-wrapper {
+    position: relative;
+    padding: 60px 20px;
+    background: #f9fafe;
+    overflow: hidden;
+}
+
+.team-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.06;
+    width: 500px;
+    max-width: 90vw;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.team-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+  .team-watermark { display: none; }
+}
+/* ============= HERO SECTION (full-width) ============= */
+.hero {
+  width: 100%;
+  max-width: none;            /* override global section max-width */
+  min-height: 100vh;          /* full screen height */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: url("sketch.jpeg") center/cover no-repeat;
+  position: relative;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,.6);
+  margin: 0;                  /* remove default section margin */
+  padding: 0 1rem;            /* small horizontal padding */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,59,111,0.55); /* overlay tint */
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== HEADER: give it more breathing room ===== */
+.header-container {
+  padding: 28px 32px;     /* was 15px 20px  → taller bar */
+}
+
+/* logo a bit larger */
+.logo {
+  height: 80px;           /* was 64px */
+  border: 3px solid #fff; /* thicker border so it still looks balanced */
+}
+
+/* brand name bigger */
+.brand {
+  font-size: 1.9rem;      /* was 1.6rem */
+}
+
+/* navigation links larger & spaced out a hair more */
+.main-nav {
+  gap: 32px;              /* was 22px */
+}
+
+.main-nav a {
+  font-size: 1.05rem;     /* was default ~0.95–1rem */
+}
+
+/* -------- header alignment fixes -------- */
+.main-nav {
+  gap: 32px;
+  margin-left: 40px;     /* no longer pushes everything to the far right */
+}
+
+.social-bar {
+  display: flex;
+  gap: 18px;
+  font-size: 1.25rem;
+  margin-left: auto;     /* icons now sit flush right */
+}
+
+.social-bar a {          /* keep icons white + subtle hover */
+  color: #fff;
+  transition: opacity 0.2s;
+}
+.social-bar a:hover { opacity: 0.8; }
+
+/* ===== HERO TEXT SIZE (adjusted smaller) ===== */
+.hero h2 {
+  font-size: clamp(2.2rem, 5vw + 0.5rem, 4rem); /* ↓ smaller max */
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: clamp(1.1rem, 1.8vw + 0.3rem, 1.6rem); /* ↓ slightly smaller */
+  margin-top: 1.2rem;
+}
+
+/* === Video carousel styling === */
+.video-carousel {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f0f6fb;
+}
+
+.video-carousel h2 {
+  color: #004080;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+#carouselVideo {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0,64,128,0.7);
+  color: #fff;
+  font-size: 2.2rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.carousel-control:hover { background: rgba(0,64,128,0.9); }
+
+.carousel-control.prev { left: -60px; }
+.carousel-control.next { right: -60px; }
+
+.carousel-indicators {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #bbb;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dot.active,
+.dot:hover { background: #004080; }
+
+@media (max-width: 640px) {
+  .carousel-control.prev { left: -30px; }
+  .carousel-control.next { right: -30px; }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: #004080;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  padding-top: 120px; /* Adjust if your header is taller or shorter */
+}
+
+html {
+  scroll-padding-top: 120px;
+}
+
+.logo {
+  height: 90px;             /* was 64px */
+  width: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;   /* slightly thicker border */
+}
+
+.brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;         /* make it larger */
+  font-weight: normal;       /* Bebas is naturally bold */
+  color: #fff;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+.brand-area {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* increased from 12px */
+}
+
+.main-nav {
+  display: flex;
+  gap: 32px;              /* not too large */
+  margin-left: auto;
+  flex-wrap: nowrap;      /* prevent line breaks */
+  align-items: center;
+}
+
+.social-bar a:hover {
+  opacity: 0.7;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 140px;         /* previously 64px — now larger */
+  width: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+.header-container {
+  padding: 20px 20px;   /* previously 15px */
+}
+
+#videos h2 {
+  font-size: 1.8rem;  /* Or adjust as needed, e.g. 1.6rem */
+  margin-bottom: 20px;
+}
+
+.video-carousel {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f0f8ff; /* light blue background to match your layout */
+}
+
+.carousel-container {
+  max-width: 640px;         /* or try 540px or 480px */
+  margin: 0 auto;
+  position: relative;
+}
+
+.video-carousel video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  max-height: 480px;        /* optional: limit height if needed */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #004080;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-control.prev {
+  left: -40px;
+}
+
+.carousel-control.next {
+  right: -40px;
+}
+
+.video-carousel video {
+  max-width: 100%;
+  max-height: 520px; /* reduce this slightly */
+  border-radius: 12px;
+}
+
+.video-card {
+  background: white;
+  padding: 10px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  max-width: 320px;  /* match typical portrait video size */
+  margin: 0 auto;
+}
+
+#videos h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #003366;
+  margin-bottom: 30px;
+}
+
+.carousel-control {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border: 2px solid #004080;
+  border-radius: 50%;
+  color: #004080;
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.carousel-control:hover {
+  background: #004080;
+  color: white;
+}
+
+.video-carousel h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #003366;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.video-card {
+  background: white;
+  padding: 12px;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+  max-width: 320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-card video {
+  width: 100%;
+  max-height: 520px;
+  border-radius: 12px;
+}
+
+.video-caption {
+  font-size: 0.95rem;
+  color: #333;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.carousel-control {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border: 2px solid #004080;
+  border-radius: 50%;
+  color: #004080;
+  font-weight: bold;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.carousel-control:hover {
+  background: #004080;
+  color: white;
+}
+
+.video-caption {
+  font-size: 0.95rem;
+  margin-top: 10px;
+  color: #333;
+}
+
+.about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.about-card {
+  background-color: #f1f6fb;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+  max-width: 320px;
+  flex: 1 1 280px;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+}
+
+.about-card h3 {
+  color: #0b2d57;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.about-card p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.about-cards.fancy-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+  justify-items: center;
+  align-items: start;
+  position: relative;
+  padding: 0 20px;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  max-width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
+}
+
+.about-card h3 {
+  font-size: 1.4rem;
+  color: #0a2c4d;
+  margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.about-card p {
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.about-card .icon {
+  font-size: 2.2rem;
+  color: #004080;
+  margin-bottom: 15px;
+}
+
+/* ===== Top utility bar ===== */
+.topbar{
+  position: fixed; top:0; left:0; width:100%;
+  background:#063d73; color:#fff; z-index:1100;
+  font-size:.9rem;
+}
+.topbar-inner{
+  max-width:1200px; margin:0 auto; padding:6px 20px;
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+}
+.topbar a{ color:#fff; text-decoration:none; opacity:.9; margin-right:16px }
+.topbar a:hover{ opacity:1 }
+.topbar-right a{ margin-right:0; margin-left:12px }
+
+/* Push the header down because topbar is fixed */
+header{ margin-top:36px; }
+
+/* Keep your header fixed as before (if you already set position:fixed) */
+header{
+  position:fixed; top:36px; left:0; width:100%; z-index:1090;
+  /* your existing background/shadow rules stay */
+}
+
+/* ===== Main nav: CTA button ===== */
+.btn-cta{
+  background:#f7c74a; color:#0a2c4d; padding:10px 16px; border-radius:999px;
+  font-weight:700; margin-left:10px; text-decoration:none; white-space:nowrap;
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
+}
+.btn-cta:hover{ filter:brightness(.95) }
+
+/* Align nav nicely when CTA is present */
+.main-nav{ display:flex; align-items:center; gap:28px; margin-left:auto; }
+
+/* ===== Mega menu ===== */
+.nav-item{ position:relative; }
+.nav-item.has-mega > a{ display:flex; align-items:center; gap:6px; }
+.nav-item .chevron{ font-size:.75rem; opacity:.85; }
+
+.mega{
+  position:absolute; left:0; top:100%;
+  display:none; padding:18px; gap:28px;
+  background:#ffffff; color:#123; border-radius:12px;
+  box-shadow:0 16px 40px rgba(0,0,0,.16);
+  transform:translateY(8px);
+  min-width:620px;
+}
+.nav-item.has-mega:hover .mega{ display:flex; }
+
+.mega-col{ min-width:180px; }
+.mega-col h4{
+  margin:0 0 10px; font-size:1rem; color:#004080; font-weight:700;
+}
+.mega a{
+  display:block; color:#2b2b2b; text-decoration:none; padding:6px 0; font-size:.95rem;
+}
+.mega a:hover{ color:#004080; }
+
+/* Responsive: collapse mega into simple dropdown on small screens */
+@media (max-width:900px){
+  .mega{ min-width:0; width:80vw; right:0; left:auto; }
+  .main-nav{ display:none; } /* (optional) you can add a burger later */
+}
+
+/* Make sure hero still sits below fixed header+topbar */
+html{ scroll-padding-top:160px; } /* adjust if your header height changes */
+body{ padding-top:160px; }        /* keeps content from hiding under fixed bars */
+
+/* --- RESET ANY GAP / STRIP --- */
+html, body { margin: 0; }
+.topbar, header { border: 0; }
+.topbar + header { margin-top: 0; }   /* no seam between bars */
+body { padding-top: 0; }              /* remove earlier fixed-header padding */
+html { scroll-padding-top: 88px; }    /* smooth anchor jumps (≈ header height) */
+
+/* --- TOP UTILITY BAR: LIGHTER BLUE & NOT STICKY --- */
+.topbar{
+  position: static;                    /* no longer fixed */
+  background: #0E5EA8;                 /* lighter than header (#004080) */
+  color: #fff;
+  width: 100%;
+  z-index: 1;
+}
+.topbar-inner{ background: transparent; }  /* ensure no white background */
+
+/* Links inside the topbar */
+.topbar a{
+  color:#fff; text-decoration:none; opacity:.95; margin-right:16px;
+}
+.topbar a:hover{ opacity:1; }
+
+/* --- MAIN HEADER: THE ONLY STICKY BAR --- */
+header{
+  position: sticky;    /* sticks on scroll */
+  top: 0;
+  z-index: 1100;
+  background: #004080; /* your darker blue */
+  margin-top: 0;       /* override any previous margin */
+}
+
+/* If you previously had fixed header rules, this neutralizes them */
+header { left: 0; right: 0; width: 100%; }
+
+
+
+/* ===== SLIDER BASE ===== */
+.site-slider{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  background: #09385f;
+}
+
+/* each slide */
+.site-slider .slide{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity .8s ease, transform 2.8s ease;
+  background: #0a2743 center/cover no-repeat;
+}
+.site-slider .slide::before{
+  /* background image from data-bg if provided */
+  content: "";
+  position: absolute; inset:0;
+  background: var(--bg) center/cover no-repeat;
+  z-index: -2;
+}
+.site-slider .slide[data-bg]{
+  --bg: url("sketch.jpeg"); /* default; overwritten by inline if present */
+}
+.site-slider .slide.is-active{
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* overlay tint (keeps text readable) */
+.slide-overlay{
+  position:absolute; inset:0;
+  background:rgba(0,59,111,.55);
+  z-index:-1;
+}
+
+/* inner content */
+.slide-center{
+  width:min(1000px, 92vw);
+  margin:auto;
+  text-align:center;
+  text-shadow:0 3px 10px rgba(0,0,0,.4);
+  padding:0 1rem;
+}
+.slide-center h2{
+  font-size: clamp(2rem, 4vw + 1rem, 3.6rem);
+  margin: 0 0 14px;
+}
+.slide-center p{
+  font-size: clamp(1rem, 1.2vw + .6rem, 1.2rem);
+  margin: 0 0 22px;
+}
+
+/* arrows */
+.slider-arrow{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:50%; border:0;
+  background:#fff; color:#003b6f; font-size:1.7rem; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; z-index:5;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+}
+.slider-arrow.prev{ left:18px; }
+.slider-arrow.next{ right:18px; }
+.slider-arrow:hover{ filter:brightness(1.05); }
+
+/* dots */
+.slider-dots{
+  position:absolute; bottom:22px; left:50%; transform:translateX(-50%);
+  display:flex; gap:10px; z-index:5;
+}
+.slider-dots button{
+  width:10px; height:10px; border-radius:50%; border:0; cursor:pointer;
+  background:rgba(255,255,255,.55);
+}
+.slider-dots button.active{ background:#f7c74a; }
+
+/* ===== REVEAL ANIMS (Excel-Job style) ===== */
+.reveal{
+  opacity:0; transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.in{
+  opacity:1; transform: translateY(0);
+}
+.reveal-d1{ transition-delay: .12s; }
+.reveal-d2{ transition-delay: .24s; }
+.reveal-d3{ transition-delay: .36s; }
+
+/* service card enlarged for slide focus */
+.service-card.big{
+  background:#ffffff; color:#0d2743; border-radius:16px;
+  padding:26px 28px; max-width:560px; margin:0 auto;
+  box-shadow:0 8px 28px rgba(0,0,0,.12);
+}
+.service-card.big i{ font-size:2rem; color:#004080; display:block; margin-bottom:10px; }
+.service-card.big h4{ color:#004080; margin:6px 0 8px; }
+.service-card.big p{ color:#334; margin:0; }
+
+/* keep content from hiding under your sticky header */
+html{ scroll-padding-top: 90px; }
+
+
+
+
+header {
+  padding: 10px 0;  /* Reduce vertical padding */
+  height: 100px;     /* Force a smaller height */
+}
+
+header img {
+  max-height: 50px; /* Shrink the logo */
+}
+
+.navbar {
+  display: flex;
+  align-items: center; /* Align logo & nav vertically */
+  height: 70px;
+}
+
+.navbar a {
+  padding: 0 15px; /* Reduce spacing around links */
+  font-size: 15px; /* Slightly smaller font */
+}
+
+@media (max-width: 768px) {
+  header {
+    height: auto; /* Let it expand naturally on small screens */
+    padding: 8px 0;
+  }
+
+  .navbar a {
+    font-size: 14px;
+  }
+}
+
+
+nav ul li a {
+  display: flex;
+  align-items: center;   /* vertically centers text */
+  height: 65px;          /* match the header height */
+  line-height: 1;        /* prevent baseline offset */
+  padding: 0 15px;
+}
+nav ul li a::after {
+  bottom: 8px; /* lifts it up into better alignment */
+}
+
+.slider,
+.carousel,
+.hero-section {
+  height: 100vh;   /* now takes 80% of the screen height */
+}
+
+.slider-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* ===== Diagonal split for service slides ===== */
+.service-slide { position: relative; }
+
+.diag-split{
+  position:absolute; inset:0; z-index:-2; overflow:hidden;
+}
+
+.diag-split .panel{
+  position:absolute; inset:0;
+  background: var(--img) center/cover no-repeat;
+}
+
+/* Left & right halves with a diagonal seam */
+.diag-split .left{
+  clip-path: polygon(0 0, 65% 0, 35% 100%, 0% 100%);
+}
+.diag-split .right{
+  clip-path: polygon(65% 0, 100% 0, 100% 100%, 35% 100%);
+}
+
+/* Slight darkening so text stays readable on any photo */
+.slide-shade{
+  position:absolute; inset:0; z-index:-1;
+  background: linear-gradient(
+     180deg,
+     rgba(0,0,0,.18) 0%,
+     rgba(0,0,0,.28) 100%
+  );
+}
+
+/* Center content on top of photos */
+.service-slide .slide-center{
+  position: relative;
+  z-index: 1;
+}
+
+/* Make the card pop a bit more over images */
+.service-card.big{
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(140%) blur(2px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
+}
+
+/* Smaller hero height (so the whole screen shows on laptops) */
+.site-slider{ min-height: 92vh; }         /* was 100vh */
+@media (max-width: 1100px){
+  .site-slider{ min-height: 88vh; }
+}
+
+/* Mobile/tablet: stack images (no diagonal) for readability */
+@media (max-width: 820px){
+  .diag-split .left,
+  .diag-split .right{ clip-path: none; }
+  .diag-split .left{ height:55%; }
+  .diag-split .right{ top:55%; height:45%; }
+  .diag-split .panel{ inset:auto; left:0; right:0; }
+}
+
+/* Optional: tighten the slide center so the text stays above the seam */
+.slide-center{ max-width: 760px; }
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.panel img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;   /* ensures full photo fits without cropping */
+}
+
+/* ===== Before/After compare (namespaced) ===== */
+.compare{
+  position:relative;
+  width:min(1060px, 92vw);
+  aspect-ratio: 16/9;               /* change to 4/3 or 9/16 if your images are tall */
+  margin: 0 auto 24px;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
+  background:#000;
+}
+.cmp--wide{ width:min(1100px, 96vw); }
+
+.compare .cmp-img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;                 /* shows full frame without distortion */
+  user-select:none; -webkit-user-drag:none;
+}
+.compare .after{
+  clip-path: inset(0 0 0 50%);      /* left% is revealed — synced with range */
+  transition: clip-path .12s linear;
+}
+
+/* center divider handle */
+.compare .cmp-handle{
+  position:absolute; top:0; bottom:0;
+  width:2px; background:rgba(255,255,255,.85);
+  left:50%; transform:translateX(-50%);
+  pointer-events:none; z-index:2;
+  box-shadow:0 0 0 1px rgba(0,0,0,.08);
+}
+
+/* range control */
+.compare .cmp-range{
+  position:absolute; left:50%; bottom:12px; transform:translateX(-50%);
+  width:min(560px, 82%); z-index:3;
+  appearance:none; height:6px; border-radius:999px;
+  background:rgba(255,255,255,.75); outline:none;
+  box-shadow:0 2px 8px rgba(0,0,0,.15) inset;
+}
+.compare .cmp-range::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none;
+  width:22px; height:22px; border-radius:50%;
+  background:#fff; border:2px solid #0a4b7a; cursor:ew-resize;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.compare .cmp-range::-moz-range-thumb{
+  width:22px; height:22px; border-radius:50%;
+  background:#fff; border:2px solid #0a4b7a; cursor:ew-resize;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+
+/* keep service text compact under the compare */
+.service-card.big{ margin-top: 8px; }
+
+.compare {
+  user-select: none;     /* no text/image selection while dragging */
+  -webkit-user-drag: none;
+  touch-action: none;    /* we handle the horizontal drag ourselves */
+  cursor: ew-resize;
+}
+.cmp-handle { pointer-events: auto; cursor: ew-resize; }
+.cmp-range  { pointer-events: auto; }
+
+/* Make sure the compare area receives the drag */
+.service-slide .slide-center { position: relative; }
+
+.service-slide .compare {
+  position: relative;
+  z-index: 2;          /* above the background */
+}
+
+/* The info card looks above, but doesn't intercept the mouse/touch */
+.service-slide .service-card {
+  position: relative;
+  z-index: 3;
+  pointer-events: none;   /* <— this is the key */
+}
+
+/* Keep the handle interactive even if it overlaps the card */
+.service-slide .cmp-handle,
+.service-slide .cmp-range {
+  position: absolute;
+  z-index: 4;
+}
+
+.compare .cmp-img {
+  object-fit: contain;     /* or 'cover' if you prefer filling */
+  width: 100%;
+  height: 100%;
+}
+
+.compare {
+  position: relative;
+  width: 100%;           /* stretch full width of the slide */
+  max-width: 1000px;     /* keep it from being too wide */
+  margin: 0 auto;        /* center horizontally */
+  aspect-ratio: 16 / 9;  /* keep a nice proportional height */
+  overflow: hidden;
+  border-radius: 8px;    /* optional rounded edges */
+  background: #000;      /* fills any gap behind images */
+}
+
+.compare img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* make sure they cover nicely */
+  display: block;
+}
+
+/* Compare (before/after) – ensure it sits above and receives input */
+.compare{
+  position: relative;
+  z-index: 20;          /* above slide content */
+  touch-action: none;   /* allow custom pointer handling */
+}
+
+.compare .cmp-range{
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: -22px;
+  z-index: 25;
+  pointer-events: auto; /* make sure the native slider is clickable */
+}
+
+.compare .cmp-handle{
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 2px;
+  left: 50%;
+  background: rgba(255,255,255,.85);
+  z-index: 26;
+}
+
+.compare { position: relative; z-index: 3; pointer-events: auto; }
+.compare .cmp-img { pointer-events: none; }
+.service-slide .slide-overlay,
+.service-slide .slide-shade { pointer-events: none; }
+.cmp-handle, .cmp-range { pointer-events: auto; }
+
+/* ===== Centered title with flanking lines ===== */
+.section-head{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;                 /* space between text and lines */
+  margin: 0 auto 32px;       /* bottom space under the title */
+  max-width: 1200px;
+}
+
+/* the left & right lines */
+.section-head::before,
+.section-head::after{
+  content: "";
+  flex: 1 1 auto;            /* stretch to edges */
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #cdd8e6 20%,
+    #cdd8e6 80%,
+    transparent
+  );
+}
+
+/* the title itself */
+.section-head h2{
+  margin: 0;
+  padding: .2rem .9rem;       /* little pill around the text */
+  font-size: 2rem;            /* matches your section h2 size */
+  color: #0b2d57;             /* your heading blue */
+  background: #e8f4ff;        /* same as page bg to “cut” the line */
+  border-radius: 8px;
+  box-shadow: 0 0 0 6px #e8f4ff; /* extra gap around the text like the reference */
+}
+
+/* optional: slightly thinner lines on small screens */
+@media (max-width: 640px){
+  .section-head{ gap: 12px; margin-bottom: 24px; }
+  .section-head h2{ font-size: 1.6rem; }
+}
+
+/* Thicker flanking lines */
+.section-head::before,
+.section-head::after{
+  height: 4px; /* was 1px → try 3–6px */
+  background: linear-gradient(
+    to right,
+    transparent,
+    #cdd8e6 20%,
+    #cdd8e6 80%,
+    transparent
+  );
+  border-radius: 999px; /* keeps thick lines nicely rounded */
+}
+
+/* Give the title a slightly wider “cutout” so the thicker lines don’t touch it */
+.section-head h2{
+  box-shadow: 0 0 0 10px #e8f4ff; /* was 6px; adjust to taste */
+  padding: .25rem 1rem;            /* optional: a hair more padding */
+}
+
+/* === Bigger video carousel (overrides) === */
+.video-carousel .carousel-container{
+  max-width: 1000px !important;           /* was ~640px */
+}
+
+.video-carousel .video-card{
+  /* Grow on big screens, stay reasonable on small */
+  max-width: clamp(480px, 52vw, 720px) !important;  /* tweak middle/last to taste */
+}
+
+.video-carousel video{
+  width: 100% !important;
+  height: auto !important;
+  max-height: 80vh !important;            /* never taller than the viewport */
+  border-radius: 14px;
+}
+
+/* Keep arrows nicely outside the card edges */
+.carousel-control.prev{ left: -56px !important; }
+.carousel-control.next{ right: -56px !important; }
+
+/* Optional: make the dots a hair larger under a bigger video */
+.carousel-indicators .dot{
+  width: 12px; height: 12px;
+}
+
+/* ===== Reusable section frame ===== */
+.section-frame{
+  position: relative;              /* needed for the pseudo border */
+  border-radius: 18px;             /* rounded corners of the frame */
+  background: #f0f8ff;             /* your current light blue */
+}
+
+/* draw a 2px inset border without changing layout */
+.section-frame::before{
+  content:"";
+  position:absolute; inset:0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px #cfe0f4 inset;   /* border color */
+  pointer-events:none;
+}
+
+/* optional: a touch of depth */
+.section-frame{
+  box-shadow: 0 8px 28px rgba(0,0,0,.04);
+}
+
+/* Make the inner card (the white video box) also have a neat double ring */
+.video-card{
+  border-radius: 18px;
+  box-shadow:
+    0 0 0 4px #ffffff,              /* white ring */
+    0 0 0 6px #cfe0f4,              /* blue outline ring */
+    0 6px 24px rgba(0,0,0,.06);     /* soft drop shadow */
+}
+
+/* If you want the video itself to match the rounded look */
+.video-card video{
+  border-radius: 14px;
+}
+
+/* Fill the white box with the video */
+.video-card{
+  padding: 0 !important;         /* kill the inner white margin */
+  border-radius: 18px;            /* keep your rounded box */
+}
+
+.video-card video{
+  display: block;
+  width: 100% !important;
+  height: auto;                   /* keeps correct aspect ratio */
+  border-radius: inherit;         /* video corners match the card */
+}
+
+/* Optional “cover” mode */
+.video-card{
+  aspect-ratio: 9 / 16;           /* or 16/9, depending on your clips */
+}
+.video-card video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;              /* fill the box, crop if necessary */
+}
+
+/* === Make the card shrink-wrap the video; no extra white space === */
+.video-carousel .video-card{
+  padding: 0 !important;
+  display: inline-block;        /* shrink to content height */
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;/* cancel any earlier aspect-ratio */
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.video-carousel .video-card video{
+  display: block;               /* removes baseline gap */
+  width: 100% !important;
+  height: auto !important;      /* cancel any previous max-height rules */
+  max-height: none !important;
+  object-fit: contain;          /* show whole video, no cropping */
+  border-radius: inherit;
+}
+
+/* If you moved the arrows earlier, keep them outside the card */
+.carousel-control.prev{ left: -56px !important; }
+.carousel-control.next{ right: -56px !important; }
+
+
+/* Use one variable so the pill and the whole panel always match */
+:root{
+  --panel-blue: #eaf3ff;   /* same shade as your pill behind the title */
+}
+
+/* Make the whole videos section that same blue (override older rules) */
+#videos.video-carousel,
+#videos.section-frame,
+#videos{
+  background: var(--panel-blue) !important;
+}
+
+/* Ensure the pill keeps using the same color too (in case it isn’t already) */
+#videos .section-head h2{
+  background: var(--panel-blue) !important;
+}
+
+/* Keep the dark-blue frame you already added */
+#videos.section-frame{ border-radius: 22px; }
+#videos.section-frame::before{ border-radius: inherit; }
+
+/* Decorative lines for section titles */
+.section-head{
+  position: relative;
+  text-align: center;
+  margin: 0 auto 26px;
+  padding: 0 20px;              /* spacing between lines and pill */
+  max-width: 980px;
+}
+
+.section-head h2{
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--panel-blue, #eaf3ff); /* same pill color you used */
+  color: #0b2d57;
+  font-weight: 700;
+}
+
+.section-head::before,
+.section-head::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: min(26vw, 280px);      /* line length */
+  height: 3px;                  /* line thickness */
+  transform: translateY(-50%);
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--outline-blue, #0b2d57) 20%,
+    var(--outline-blue, #0b2d57) 80%,
+    transparent
+  );
+  border-radius: 2px;
+  opacity: .9;
+}
+.section-head::before{ left: 0; }
+.section-head::after { right: 0; }
+
+/* Only the active slide should receive pointer events and sit on top */
+.site-slider .slide { pointer-events: none; }
+.site-slider .slide.is-active {
+  pointer-events: auto;
+  z-index: 2;                 /* make sure it’s above the invisible ones */
+}
+
+/* BEFORE — likely what you have now
+.compare .after{ clip-path: inset(0 0 0 50%); transition: clip-path .12s linear; }
+*/
+
+/* AFTER — fully hidden by default */
+.compare .after{
+  clip-path: inset(0 100% 0 0);   /* hide the after image */
+  transition: clip-path .12s linear;
+}
+.compare .cmp-handle{ left: 0%; }  /* put the handle at the left edge initially */
+
+/* Vertical divider stays */
+.compare .cmp-handle{
+  position:absolute; top:0; bottom:0; width:2px;
+  background:rgba(255,255,255,.9);
+  left:0%; transform:translateX(-50%);
+  z-index:4; pointer-events:none;
+}
+
+/* New drag button */
+.compare .cmp-grip{
+  position:absolute; left:0%; top:50%;
+  transform:translate(-50%,-50%);
+  width:44px; height:44px; border-radius:50%;
+  background:#fff; border:3px solid var(--outline-blue,#0b2d57);
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
+  display:grid; place-items:center;
+  cursor:ew-resize; z-index:6;
+  user-select:none;
+}
+.compare .cmp-grip i{
+  font-size:16px; color:var(--outline-blue,#0b2d57); pointer-events:none;
+}
+.compare .cmp-grip:focus-visible{
+  outline:0; box-shadow:0 0 0 4px rgba(11,45,87,.25);
+}
+
+/* --- Compare: start with AFTER hidden --- */
+.compare .after{
+  clip-path: inset(0 100% 0 0);           /* fully hidden until user drags */
+  transition: clip-path .12s linear;
+}
+
+/* Divider starts on the far left */
+.compare .cmp-handle{
+  position:absolute; top:0; bottom:0; width:2px;
+  background:rgba(255,255,255,.9);
+  left:0%; transform:translateX(-50%);
+  z-index:4; pointer-events:none;
+}
+
+/* Bottom instruction panel */
+.cmp-instruction{
+  position:absolute;
+  left:50%; bottom:12px; transform:translateX(-50%);
+  width:min(560px, 86%);
+  background:rgba(255,255,255,.96);
+  border:2px solid var(--outline-blue, #0b2d57);
+  border-radius:14px;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  padding:10px 14px 14px;
+  z-index:5;
+  pointer-events:auto;
+}
+
+/* Message text */
+.cmp-msg{
+  margin:0 0 8px;
+  text-align:center;
+  font-size:.95rem;
+  color:var(--outline-blue, #0b2d57);
+  font-weight:600;
+}
+
+/* The slider lives inside the box now — reset old absolute rules */
+.cmp-instruction .cmp-range{
+  position: static !important;
+  left:auto !important; right:auto !important; bottom:auto !important;
+  transform:none !important;
+  appearance:none; width:100%; height:8px; border-radius:999px;
+  background:linear-gradient(90deg,#e6eef7,#d7e4f4);
+  outline:none; box-shadow:inset 0 2px 6px rgba(0,0,0,.15);
+}
+
+/* Thumb */
+.cmp-instruction .cmp-range::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none;
+  width:22px; height:22px; border-radius:50%;
+  background:#fff; border:3px solid var(--outline-blue,#0b2d57);
+  box-shadow:0 2px 8px rgba(0,0,0,.25); cursor:ew-resize;
+}
+.cmp-instruction .cmp-range::-moz-range-thumb{
+  width:22px; height:22px; border-radius:50%;
+  background:#fff; border:3px solid var(--outline-blue,#0b2d57);
+  box-shadow:0 2px 8px rgba(0,0,0,.25); cursor:ew-resize;
+}
+
+/* Put the instruction box below the compare area */
+.service-slide .compare { 
+  margin-bottom: 96px;            /* room for the box */
+}
+
+/* Allow the box to sit outside the compare frame */
+.compare { 
+  overflow: visible;              /* was hidden */
+}
+
+/* Keep corners pretty even without overflow clipping */
+.compare .cmp-img { 
+  border-radius: inherit; 
+}
+
+/* Position the instruction box right under the image */
+.compare .cmp-instruction{
+  position: absolute;
+  left: 50%;
+  top: 100%;                      /* directly below the compare */
+  transform: translate(-50%, 16px);
+  z-index: 6;                     /* above surrounding content */
+}
+
+/* --- Compare: put the whole drag UI below the image --- */
+.service-slide .compare{
+  margin-bottom: 120px;           /* room between image and service card */
+}
+.compare{
+  overflow: visible;               /* allow the box to hang below */
+  position: relative;
+}
+
+/* The instruction pill under the image */
+.compare .cmp-instruction{
+  position: absolute;
+  left: 50%;
+  top: 100%;                       /* sit right below the compare frame */
+  transform: translate(-50%, 16px);
+  width: min(660px, 90vw);
+  padding: 14px 18px 54px;         /* extra bottom space for the slider line */
+  border-radius: 14px;
+  background: #fff;
+  color: #0b2d57;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0,0,0,.14);
+  z-index: 20;
+}
+
+/* Put the range/track inside the pill */
+.compare .cmp-range{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 16px + 26px);   /* vertically inside the pill */
+  bottom: auto !important;         /* override any previous bottom rules */
+  width: calc(100% - 64px);
+  height: 10px;
+  background: #e9eff7;
+  border-radius: 999px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,.08);
+  z-index: 21;
+}
+.compare .cmp-range::-webkit-slider-thumb{ width:24px; height:24px; }
+.compare .cmp-range::-moz-range-thumb{ width:24px; height:24px; }
+
+/* Align the round drag knob with the line below */
+.compare .cmp-grip{
+  position: absolute;
+  left: 0%;                        /* JS will keep this in sync as you drag */
+  top: calc(100% + 16px + 18px);   /* center on the slider line */
+  transform: translate(-50%, 0);
+  z-index: 22;
+}
+
+/* Keep the vertical divider visible on the image */
+.compare .cmp-handle{ z-index: 10; }
+
+/* Put the slider INSIDE the instruction pill */
+.compare .cmp-instruction{
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 16px);         /* sits just under the image */
+  transform: translateX(-50%);
+  width: min(660px, 90vw);
+  padding: 14px 18px 18px;        /* bottom padding now holds the slider */
+  border-radius: 14px;
+  background: #fff;
+  color: #0b2d57;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0,0,0,.14);
+  z-index: 20;
+  display: grid;
+  gap: 10px;
+}
+
+/* Reset the slider to be a normal block inside the pill */
+.compare .cmp-instruction .cmp-range{
+  position: static !important;    /* override previous absolute rules */
+  transform: none !important;
+  width: 100%;
+  height: 10px;
+  background: #e9eff7;
+  border-radius: 999px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,.08);
+  margin-top: 4px;
+}
+
+/* (Optional) hide the extra round drag button since the thumb handles it */
+.compare .cmp-grip{ display: none; }
+
+/* 1) Only absolutely position the slider when it's a direct child of .compare */
+.compare > .cmp-range{
+  position:absolute;
+  left:50%;
+  bottom:12px;
+  transform:translateX(-50%);
+  width:min(560px, 82%);
+  z-index:3;
+  appearance:none;
+  height:6px;
+  border-radius:999px;
+  background:rgba(255,255,255,.75);
+  outline:none;
+  box-shadow:0 2px 8px rgba(0,0,0,.15) inset;
+}
+
+/* 2) When the slider lives inside the pill, lay it out inside the box */
+.compare .cmp-instruction{
+  position:relative;
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  margin:14px auto 0;
+  padding:12px 18px;
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+  z-index:3;           /* above the compare surface */
+}
+
+.compare .cmp-instruction .cmp-range{
+  position:static !important;    /* cancel absolute */
+  transform:none !important;
+  width:min(640px, 88vw);
+  margin:6px 0 0;
+  display:block;
+}
+
+/* Center the instruction pill exactly under the compare frame */
+.compare{
+  margin-left: auto;
+  margin-right: auto;        /* compare itself centered */
+}
+
+.compare + .cmp-instruction{
+  position: static;          /* ensure no leftover absolute positioning */
+  left: auto; right: auto; transform: none;
+  display: inline-flex;      /* shrink to content */
+  margin: 14px auto 0;       /* centers under the compare */
+  max-width: min(520px, 96%);/* keep it compact & responsive */
+  justify-content: center;   /* center contents inside the pill */
+}
+
+/* (Optional) make the slider inside the pill center & fit nicely */
+.compare + .cmp-instruction .cmp-range{
+  width: clamp(220px, 48vw, 420px);
+  margin: 6px auto 0;        /* center the range track inside the pill */
+}
+
+/* --- Compare instruction: text on top, slider underneath --- */
+.cmp-instruction{
+  display: flex !important;
+  flex-direction: column !important;   /* stack */
+  align-items: center;
+  gap: 10px;                            /* space between text & slider */
+  padding: 12px 16px 18px;              /* a little extra bottom padding */
+}
+
+.cmp-instruction .cmp-msg{
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.cmp-instruction .cmp-range{
+  width: 92%;
+  margin: 2px 0 0;                      /* keep the thumb away from the text */
+}
+
+/* Grid layout */
+.about-cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap:28px;
+}
+
+/* Cards */
+.about-card{
+  background:#fff;
+  border:1px solid rgba(11,45,87,.08);
+  border-radius:16px;
+  padding:22px 22px 20px;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+  display:flex;
+  flex-direction:column;
+  min-height:280px;             /* keeps heights consistent */
+}
+
+.about-card .icon{
+  font-size:28px;
+  color:#0b2d57;
+  margin-bottom:10px;
+}
+
+.about-card h3{
+  color:#0b2d57;
+  font-weight:700;
+  margin:6px 0 10px;
+}
+
+/* Text & lists inside cards */
+.about-card p,
+.about-card ul{
+  color:#2c2c2c;
+  font-size:.96rem;
+  line-height:1.55;
+  text-align:left;
+  margin:0;
+}
+
+.about-list{
+  list-style:none;
+  padding-left:0;
+  margin-top:6px;
+  display:grid;
+  gap:8px;
+}
+.about-list li{
+  position:relative;
+  padding-left:1.2rem;
+}
+.about-list li::before{
+  content:"";
+  position:absolute;
+  left:0; top:.55em;
+  width:6px; height:6px;
+  border-radius:50%;
+  background:#0b2d57;          /* dark blue bullet */
+  box-shadow:0 0 0 3px #e8f4ff inset;  /* subtle ring that matches page bg */
+}
+
+/* Collapsible details (optional) */
+.about-details{
+  margin-top:2px;
+}
+.about-details > summary{
+  cursor:pointer;
+  color:#0b2d57;
+  font-weight:600;
+  list-style:none;
+  margin-bottom:8px;
+}
+.about-details > summary::-webkit-details-marker{ display:none; }
+.about-details[open] > summary{ margin-bottom:10px; }
+
+/* Small screens: comfortable spacing */
+@media (max-width: 640px){
+  .about-card{ padding:18px; }
+}
+
+#approaches .about-card:nth-child(1) .icon { color:#0b2d57; } /* Qualité – bleu foncé */
+#approaches .about-card:nth-child(2) .icon { color:#f7c74a; } /* Innovation – or */
+#approaches .about-card:nth-child(3) .icon { color:#2b7a78; } /* Fiabilité – teal subtil */
+
+
+
+
+
+
+
